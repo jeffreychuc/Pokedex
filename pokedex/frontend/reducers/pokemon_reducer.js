@@ -9,9 +9,11 @@ const pokemonReducer = (state = {}, action)  =>  {
       newState = merge({}, action.pokemon);
       return newState;
     case RECEIVE_POKEMON:
-      console.log('pokemonReducer');
-      
-      newState = merge({}, action.pokemon);
+      let currentPokemonID = action.pokemon.id;
+      debugger;
+      newState = merge({}, state, {[currentPokemonID]: action.pokemon});
+      // newState = merge({}, action.pokemon);
+      debugger;
       return newState;
     default:
       return state;  

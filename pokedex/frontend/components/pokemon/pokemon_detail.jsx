@@ -1,4 +1,8 @@
 import React from 'react';
+import ItemDetailContainer from '../items/items_detail_container';
+import ItemDetail from '../items/item_detail';
+import { Route } from 'react-router-dom';
+import Item from '../items/item';
 
 class PokemonDetail extends React.Component {
 
@@ -9,7 +13,6 @@ class PokemonDetail extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log('newProps', newProps);
     if (this.props.match.params.pokemonid !== newProps.match.params.pokemonid)  {
       this.props.requestPokemon(newProps.match.params.pokemonid);
     }
@@ -18,17 +21,23 @@ class PokemonDetail extends React.Component {
   render () {
     // console.log(this.props.pokemon, 'pokemon');
     // console.log(this.props.items, 'items');
-    const { pokemon, items } = this.props;
+    const { items } = this.props;
+
     return (
-      <ul>
-        IT WORKS
-        { pokemon.map(item => 
-            <li>{item}</li>) 
-        }
-        { items.map(item => <li>{item.name}</li>) }
-      </ul>
+      <div>
+        <ul>
+          IT WORKS
+          { 
+            items.map((item,idx) => <Item key={idx} item={item} /> ) 
+          }
+        </ul>
+        <Route path="/pokemon/:pokemonid/item/:itemid" component ={ItemDetailContainer} />
+  
+      </div>
     );
   }
 }
 
 export default PokemonDetail;
+
+

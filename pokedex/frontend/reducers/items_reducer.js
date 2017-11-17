@@ -7,7 +7,6 @@ const itemReducer = ( state = {}, action) =>  {
   switch(action.type) {
     case RECEIVE_POKEMON:
       newState = merge({}, action.items);
-      console.log('itemReducer');
 
       return newState;
     default:

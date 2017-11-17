@@ -14,6 +14,10 @@ export const selectPokemon = (state) => {
 };
 
 export const selectPokemonItems = (state) => {
-  console.log('selectPokemonItems', state);
+
   return values(state.entities.items);
+};
+
+export const selectPokemonItem2 = (state, itemId) => {
+  return values(state.entities.items[itemId]);
 };

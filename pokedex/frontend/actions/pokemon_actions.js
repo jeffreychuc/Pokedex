@@ -9,6 +9,7 @@ export const receiveAllPokemon = (pokemon) => ({
 });
 
 export const receivePokemon = ( promiseObject ) => {
+
   return ({type: RECEIVE_POKEMON,
   pokemon: promiseObject.pokemon,
   items: promiseObject.items});
@@ -20,7 +21,6 @@ export const requestAllPokemon = () => (dispatch) => (
 );
 
 export const requestPokemon = (id) => (dispatch) => {
-  console.log("pokemon Action", id);
   return APIUtil.fetchPokemon(id)
     .then((promiseObject) => dispatch(receivePokemon(promiseObject)));
 };

@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', ()=>  {
   window.store = store;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  console.log("hello");
   ReactDOM.render(<Root store={store} />, rootEl);
+
+  
 });

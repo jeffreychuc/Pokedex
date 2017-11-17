@@ -4,16 +4,21 @@ import PokemonIndexContainer from './pokemon/pokemon_index_container';
 import PokemonDetailContainer from './pokemon/pokemon_detail_container';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 
+
 const Root = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
-      <Switch>
-        <Route exact path="/" component ={PokemonIndexContainer} />
-        <Route path="/pokemon/:pokemonid" component ={PokemonDetailContainer} />
-      </Switch>
+      <Route path="/" component ={PokemonIndexContainer} />
     </HashRouter>
   </Provider>
 );
 
 export default Root;
 
+
+//<Route path="/pokemon/:pokemonId/item/:itemId" component={ItemDetailContainer} />
+
+//we defined what pokemonid is. 
+//if we change this, we will have to change the pokemon_detail params as well.
+
+{/* <Route path="/pokemon/:pokemonid" component ={PokemonDetailContainer} /> */}
